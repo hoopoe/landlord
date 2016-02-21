@@ -1,10 +1,98 @@
 <p>This is the main view</p>
 
-<button ng-click="getGKN()">
-    Get GKN
-</button>
-
-
 <button ng-click="getGExcel()">
     Get getGExcel
 </button>
+
+<div id="wrapperDiv" class="wrapper">
+  <div id="sidebarDiv" class="sidebar sidebarOpenState">
+    <div class="sidebarWrapper">
+      <div class="searchConditionContainer">
+        <div style="height: 50px;">             
+        </div>
+        <div>
+          <input id="searchTextbox" class="searchTextbox" type="text" value="" title="Поиск земельных участков и единиц кадастрового деления" />
+          <a id="searchButton" class="searchButton" onclick="searchButtonClick(); return false;">
+          </a>
+        </div>
+        <div id="searchExLabelContainer" class="searchExLabelContainer">
+          <div id="searchExRightTriangleImage" class=" triangle rightTriangle"></div>                              
+          <div id="searchExDownTriangleImage" class="triangle downTriangle" style="display:none;"></div>
+          <a class="pseudoLink searchExLabel" onclick="searchExClick(); return false;">                                
+            <span>
+              Расширенный поиск
+            </span>
+          </a>
+        </div>
+        <div id="searchExPanel" class="searchExPanel searchExPanelCloseState tundra">
+          <div class="portlet-nav-toolbar searchExPanelTabContainer">
+            <div class="portlet-nav-toolbar-box">
+              <ul class="portlet-nav-tabs portlet-nav-tabs-content g-layout">
+                <li class="tabs-item-active"><a class="tabs-item"><span><span><span>По кадастровому
+                  номеру </span></span></span></a></li>
+                <li><a class="tabs-item"><span><span><span>По адресу </span></span></span></a>
+                </li>
+              </ul>
+            </div>
+          </div>              
+        </div>
+      </div>
+      <div id="searchResultPanel" class="searchResultContainer" style="display:none;">
+        <div id="emptyResultPanel" class="emtyResult" style="display:none;">
+          <div class="infoMessage">
+            <div class="infoIcon"></div>
+            <span class="infoLabel">
+              По вашему запросу ничего не найдено. Пожалуйста уточните параметры запроса.
+            </span>
+          </div>
+        </div>
+        <div id="resultListPanel" class="resultListContainer" style="display:none;">
+          <div class="resultListHeader">
+            <a id="bookmarksAllButton" class="bookmarks_button bookmarks_headerButton bookmarks_addAllButton" title="Добавить весь список в избранное" onclick="addAllToBookamrks(); return false;"></a>
+            <p id="resultItemLabelWraper" class="resultListLabel">
+              <span id="resultItemLabel"></span>    
+              <span id="resultItemLabelError"></span>                 
+            </p>              
+          </div>
+          <ul id="resultList" class="resultList">                                
+          </ul>
+          <div id="resultsListPagesWrapper">
+                          <ul id="resultListPages"></ul>              
+          </div>
+        </div>
+      </div>   
+    </div>
+    <div class="bookmarks">
+      <div class="bookmarks_header">
+        
+      </div>
+      <ul id="bookmarksList" class="bookmarks_list">
+      </ul>
+    </div>
+  </div>
+  <div id="sidebarSwitcherDiv" class="sidebarSwitcher" >
+    <a id="switcherButton" class="switcherButton switcherButtonOpenSate"  onclick="switcherClick()"></a>
+  </div>
+  <div id="contentDiv" class="_content contentOpenState">
+    <div id="toolbarDiv" class="toolbar">
+      <ul id="toolbarButtonContainer" class="toolbarBackground">
+        <li id="basemapTool" toggled="true" class="toolbarRightElement">
+          <a class="toolbarButton" onclick="toolButtonClick('basemapTool'); return false;" title="Управление содержанием карты"></a>
+          
+        </li>  
+      </ul>
+    </div>
+    <div id="mapContainerDiv" class="mapContainer">
+      <div id="map" class="map">
+        <div id="mapLoader" class="mapLoader">
+          <!--<img src="../portalonline/i/map-loader.gif" alt="загрузка..."/>-->
+        </div>                      
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript" src="scripts/legacy/initMap.js" ></script>
+<script type="text/javascript" src="scripts/legacy/script.js"></script> 

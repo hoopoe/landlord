@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>LandLord</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <!--<meta name="viewport" content="width=device-width">-->
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -13,9 +13,12 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/wrapper.css">
     <!-- endbuild -->
+    <script type="text/javascript" src="scripts/3dparty/arcgis_js_api/library/2.8/jsapi"></script>
+    <script type="text/javascript" src="scripts/legacy/gui.js"></script>
   </head>
-  <body ng-app="webApp">
+  <body ng-app="webApp" onresize="bodyResize()" onload='bodyLoad()'>
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -44,10 +47,13 @@
     </div>
 
     <div class="container">
-    <div ui-view></div>
+        <div ui-view></div>
     </div>
+    
+    
 
-    <div class="footer">
+    <div id="footerDiv" class="footer">
+      <div class="footerVersion" id="version"></div>
       <div class="container">
         <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
       </div>
@@ -67,6 +73,38 @@
     
     <!-- legacy begin-->
     <script src="scripts/legacy/common.js"></script>
+    
+    <script type="text/javascript" src="scripts/legacy/constants.js"></script>       
+    <script type="text/javascript" src="scripts/legacy/pagination.js"></script>
+    <script type="text/javascript" src="scripts/legacy/kosmos_layer.js" ></script>
+    <!--<script type="text/javascript" src="scripts/legacy/initMap.js" ></script>-->
+    <script type="text/javascript" src="scripts/legacy/html_templates.js"></script>
+    <script type="text/javascript" src="scripts/legacy/toolbar.js"></script>
+    <script type="text/javascript" src="scripts/legacy/identify.js"></script>
+    <script type="text/javascript" src="scripts/legacy/identify_combobox.js"></script>
+    <script type="text/javascript" src="scripts/legacy/tab.js"></script>
+    <script type="text/javascript" src="scripts/legacy/map_functions.js"></script>
+    <script type="text/javascript" src="scripts/legacy/search.js"></script>
+    <script type="text/javascript" src="scripts/legacy/search_cadastre_combobox.js"></script>
+    <script type="text/javascript" src="scripts/legacy/search_address_combobox.js"></script>
+    <script type="text/javascript" src="scripts/legacy/info_window.js"></script>    
+    <!--<script type="text/javascript" src="scripts/legacy/script.js"></script> -->
+    <script type="text/javascript" src="scripts/legacy/toc_reorder.js"></script> 
+    <script type="text/javascript" src="scripts/legacy/zouit.js"></script> 
+    <script type="text/javascript" src="scripts/legacy/terrZone.js"></script> 
+    <script type="text/javascript" src="scripts/legacy/bookmarks.js"></script> 
+    <script type="text/javascript" src="scripts/legacy/border.js"></script>
+    <script type="text/javascript" src="scripts/legacy/atd.js"></script>
+    <script type="text/javascript" src="scripts/legacy/frame.js"></script>
+    <script type="text/javascript" src="scripts/legacy/trackers.js"></script>
+    <script type="text/javascript" src="scripts/legacy/mixedQueryTask.js"></script>
+    <script type="text/javascript" src="scripts/legacy/native.history.js"></script>
+    <script type="text/javascript" src="scripts/legacy/browserHistoryTools.js"></script>
+    <script type="text/javascript" src="scripts/legacy/measure.js"></script>
+    <script type="text/javascript" src="scripts/legacy/coordinateSearch.js"></script>
+    <script type="text/javascript" src="scripts/legacy/fileObjects.js"></script>
+    <script type="text/javascript" src="scripts/legacy/localStorage.js"></script>
+    <script type="text/javascript" src="scripts/legacy/CachedDynamycLayer.js"></script>
     <!-- legacy end -->
 
     <!-- build:js(.) scripts/vendor.js -->

@@ -56,15 +56,16 @@
       <div class="view-button-group">
         <ul>
           <li>
-            <a>excel</a>
+            <a  ng-href="{{excelUrl}}"  ng-bind='placeTitle'></a>
           </li>
           <li>
-            
             <button ng-click="sold()" class="btn btn-info">Sold</button>
           </li>
           <li>
-            
             <button ng-click="reserved()" class="btn btn-info">Reserved</button>
+          </li>
+          <li>
+            <button ng-click="clear()" class="btn btn-info">Clear</button>
           </li>
         </ul>
       </div>

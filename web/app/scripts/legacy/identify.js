@@ -30,13 +30,13 @@ function searchCompleted() {
     var objectIdField = getObjectIdField(_searchResultObjectsType);
     highlightObject(_searchResultObjectsType, _searchResultObjects[0]);
 
-    showInfoWindow(
-		_searchResultObjectsType,
-		_searchResultObjects[0], 
-		_map.toScreen(
-			(_clickedPoint != null)?(_searchResultObjects[0].clickedPoint = _clickedPoint):(_searchResultObjects[0].point)
-		)
-	);
+ //    showInfoWindow(
+	// 	_searchResultObjectsType,
+	// 	_searchResultObjects[0], 
+	// 	_map.toScreen(
+	// 		(_clickedPoint != null)?(_searchResultObjects[0].clickedPoint = _clickedPoint):(_searchResultObjects[0].point)
+	// 	)
+	// );
 
 	_selectedObject = { objectType: _searchResultObjectsType, object: _searchResultObjects[0] };
     _onSearchCompleted = null;

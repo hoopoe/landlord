@@ -30,13 +30,17 @@ angular.module('webApp')
       }
       _map.setExtent(newExtent);
     });
-
+    
+    $scope.clear = function() {
+        clearHighlightObject();
+    }
+        
     function isSold(t) {
-      return t.label == 's';
+      return t.desc == 's';
     }
 
     function isReserved(t) {
-      return t.label == 'r';
+      return t.desc == 'r';
     }
 
     $scope.sold = function() {
@@ -47,11 +51,13 @@ angular.module('webApp')
       }).
       success(function(data, status) {
 		var filtered = data.filter(isSold);
-        var ids = filtered.map(function(item) {
-          return "'" + item.id + "'";
-        });
-        var criteria = "PARCEL_ID IN (" + ids + ")";
-        higlightCadastreObjects(PortalObjectTypes.parcel, criteria);
+		if (filtered.length > 0) {
+            var ids = filtered.map(function(item) {
+              return "'" + item.id + "'";
+            });
+            var criteria = "PARCEL_ID IN (" + ids + ")";
+            higlightCadastreObjects(PortalObjectTypes.parcel, criteria);
+		}
       })
         .error(function(data, status) {
           console.log(data);
@@ -66,11 +72,13 @@ angular.module('webApp')
       }).
       success(function(data, status) {
 		var filtered = data.filter(isReserved);
-        var ids = filtered.map(function(item) {
-          return "'" + item.id + "'";
-        });
-        var criteria = "PARCEL_ID IN (" + ids + ")";
-        higlightCadastreObjects(PortalObjectTypes.parcel, criteria);
+		if (filtered.length > 0) {
+            var ids = filtered.map(function(item) {
+              return "'" + item.id + "'";
+            });
+            var criteria = "PARCEL_ID IN (" + ids + ")";
+            higlightCadastreObjects(PortalObjectTypes.parcel, criteria);
+		}
       })
         .error(function(data, status) {
           console.log(data);

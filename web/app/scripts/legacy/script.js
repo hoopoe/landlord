@@ -133,32 +133,32 @@ function mapLoaded() {
 
 	_measureToolbar = new dataplus.toolbars.Measure(_map);
 
-	dojo.connect(_map, "onMouseDragStart", function () {
-		if (_selectedTool != "zoomTool") {
-			changeMapCursor("mapCursorPanActive");
-		}
-	});
-	dojo.connect(_map.infoWindow, "onHide", infoWindowHide);
+	// dojo.connect(_map, "onMouseDragStart", function () {
+	// 	if (_selectedTool != "zoomTool") {
+	// 		changeMapCursor("mapCursorPanActive");
+	// 	}
+	// });
+	// dojo.connect(_map.infoWindow, "onHide", infoWindowHide);
 
-	dojo.connect(_map, "onKeyDown", function (keyEvent) {
-		if (keyEvent.keyCode === dojo.keys.SHIFT) {
-			changeMapCursor("mapCursorZoom");
-		}
-	});
+	// dojo.connect(_map, "onKeyDown", function (keyEvent) {
+	// 	if (keyEvent.keyCode === dojo.keys.SHIFT) {
+	// 		changeMapCursor("mapCursorZoom");
+	// 	}
+	// });
 
-	dojo.connect(_map, "onKeyUp", function (keyEvent) {
-		if (keyEvent.keyCode === dojo.keys.SHIFT) {
-			refreshMapcursor();
-		}
-	});
+	// dojo.connect(_map, "onKeyUp", function (keyEvent) {
+	// 	if (keyEvent.keyCode === dojo.keys.SHIFT) {
+	// 		refreshMapcursor();
+	// 	}
+	// });
 
-	dojo.connect(_map, "onMouseDragEnd", function () {
-		refreshMapcursor();
-	});  
+	// dojo.connect(_map, "onMouseDragEnd", function () {
+	// 	refreshMapcursor();
+	// });  
 	
-	dojo.query("#map_zoom_slider").onclick(function(e){
-		__eventGui(ACTIONS.ZoomSlider, '');
-	});
+	// dojo.query("#map_zoom_slider").onclick(function(e){
+	// 	__eventGui(ACTIONS.ZoomSlider, '');
+	// });
 
 	mapZoomEnd(null, null, null, _map.getLevel());
     dojo.byId('version').innerHTML = VERSION;
@@ -392,7 +392,7 @@ function init(){
 		
 		dojo.connect(_map, "onLoad", mapLoaded);
 		dojo.connect(_map, "onMouseMove", mapMouseMove);
-		dojo.connect(_map, "onClick", mapMouseClicked);
+		// dojo.connect(_map, "onClick", mapMouseClicked);
 		dojo.connect(_map, "onZoomEnd", mapZoomEnd);
 		
 		//dojo.connect(_map, "onMouseMove", showCoordinates);

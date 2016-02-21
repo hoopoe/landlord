@@ -129,15 +129,15 @@
 }
 div.mapLoader
 {
-	/*overflow: hidden;*/
- /*   position: absolute;*/
- /*   z-index: 60;*/
+	overflow: hidden;
+    position: absolute;
+    z-index: 60;
 	top: 3px;
 	right: 3px;
 }
 .esriScalebar {
 	padding-bottom: 15px;
-	font
+	/*font*/
 }
 .esriScalebarLabel {
     color: #000 !important;

@@ -31,7 +31,7 @@ function initLocalStorage() {
 		};
 
 		ioWorker.onerror = function(error) {
-			console.log("Worker to Parent: ", error);
+			// console.log("Worker to Parent: ", error);
 		};
 
 		//dojo.extend(esri.layers.ArcGISTiledMapServiceLayer, {

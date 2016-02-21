@@ -16,37 +16,16 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.router'
+    'ui.router' //not used coz of legacy global _map
   ])
   .config(function ($routeProvider, $stateProvider, $urlRouterProvider) {
-      $stateProvider
-      .state('/', {
-          url: '/',
-          templateUrl: 'views/main.html',
-          controller: 'MainCtrl',
-          controllerAs: 'main'
+    $routeProvider
+      .when('/', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl',
+        controllerAs: 'main'
       })
-      .state('beta', {
-          url: '/beta',
-          templateUrl: 'views/beta.html'
-      })
-      .state('about', {
-          url: '/about',
-          templateUrl: 'views/about.html'
-      })
-      $urlRouterProvider.otherwise('/');
-    // $routeProvider
-    //   .when('/', {
-    //     templateUrl: 'views/main.html',
-    //     controller: 'MainCtrl',
-    //     controllerAs: 'main'
-    //   })
-    //   .when('/about', {
-    //     templateUrl: 'views/about.html',
-    //     controller: 'AboutCtrl',
-    //     controllerAs: 'about'
-    //   })
-    //   .otherwise({
-    //     redirectTo: '/'
-    //   });
+      .otherwise({
+        redirectTo: '/'
+      });
   });

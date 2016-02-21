@@ -1,5 +1,4 @@
 <ul class="nav navbar-nav">
-    <li ui-sref-active="active"><a ui-sref="/">Alfa</a></li>
-    <li ui-sref-active="active"><a ui-sref="beta">Beta</a></li>
-    <li ui-sref-active="active"><a ui-sref="about">About</a></li>
+    <li ng-click="setAlfa()" data-ng-class="{'active': currentLand == 'alfa'}"><a >Alfa</a></li>
+    <li ng-click="setBeta()" data-ng-class="{'active': currentLand == 'beta'}"><a >Beta</a></li>
 </ul>

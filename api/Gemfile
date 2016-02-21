@@ -46,3 +46,4 @@ group :development do
 end
 
 gem 'google_drive'
+gem 'rack-cors', :require => 'rack/cors'

@@ -10,5 +10,6 @@
 angular.module('webApp')
   .constant('CONFIG', {
     // AngularJS will instantiate a singleton by calling "new" on this function
-    'GetGKN': "http://maps.rosreestr.ru/arcgis/rest/services/Cadastre/CadastreSelected/MapServer/exts/GKNServiceExtension/online/parcel/find?cadNums=['{0}']&onlyAttributes=false&returnGeometry=true&f=json"
+    'GetGKN': "http://maps.rosreestr.ru/arcgis/rest/services/Cadastre/CadastreSelected/MapServer/exts/GKNServiceExtension/online/parcel/find?cadNums=['{0}']&onlyAttributes=false&returnGeometry=true&f=json",
+    'ExcelAPI': "http://169.55.85.43:3000/excel" //todo: fix hardcoded ip
   });

@@ -15,11 +15,22 @@ angular.module('webApp')
       'Karma'
     ];
     
-    $scope.getInfo = function(){
-        console.log("get info");
+    $scope.getGKN = function(){
         $http({
             method: 'GET',
             url: CONFIG.GetGKN.format('47:14:1261001:17')
+        }).
+        success(function(data, status) {
+            console.log(data);   
+        })
+        .error(function(data, status) {
+            console.log(data);
+        });
+    }
+    $scope.getGExcel = function(){
+        $http({
+            method: 'GET',
+            url: CONFIG.ExcelAPI
         }).
         success(function(data, status) {
             console.log(data);   

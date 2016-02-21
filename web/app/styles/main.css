@@ -98,3 +98,29 @@ body {
 .nav > li {
     cursor: pointer;
 }
+
+
+.view-button-group {
+  position: absolute;
+  left: 0;
+}
+
+.view-button-group ul{
+  list-style-type:none;
+}
+
+.view-button-group li{
+  margin: 5px;
+}
+
+.view-button-group button {
+  width: 100px;
+}
+
+/*.scalebar_bottom-left {
+  display: none;
+}*/
+
+.esriScalebar{display: none;}
+
+.esriOverviewMap{display: none;}

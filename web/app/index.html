@@ -18,55 +18,61 @@
     <!-- endbuild -->
     <script type="text/javascript" src="scripts/3dparty/arcgis_js_api/library/2.8/jsapi"></script>
     <script type="text/javascript" src="scripts/legacy/gui.js"></script>
-
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body ng-app="webApp" class="portal"  onresize="bodyResize()" onload='bodyLoad()'>
     <!--[if lte IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
     <!-- Add your site or application content here -->
     <div class="header">
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
           <div class="navbar-header">
-
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
             </button>
-
-            <a class="navbar-brand" href="#/">LL App</a>
+            <a class="navbar-brand" href="#/">Land Lord</a>
           </div>
-
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
             <div data-top-menu class="top-menu"></div>
           </div>
         </div>
       </div>
     </div>
-
     <div class="container" ng-controller='MainCtrl'>
-        <!-- <div ui-view></div> -->
-        <!-- <div ng-veiw></div> -->
-        <button ng-click="getGExcel()">
-          Get getGExcel
+      <!-- <button ng-click="getGExcel()">
+      Get getGExcel
       </button>
       <button ng-click="test()">
-          Test
+      Test
       </button>
       <button ng-click="clean()">
-          Clean
-      </button>
-
+      Clean
+      </button> -->
+      <div class="view-button-group">
+        <ul>
+          <li>
+            <a>excel</a>
+          </li>
+          <li>
+            
+            <button ng-click="sold()" class="btn btn-info">Sold</button>
+          </li>
+          <li>
+            
+            <button ng-click="reserved()" class="btn btn-info">Reserved</button>
+          </li>
+        </ul>
+      </div>
       <div id="wrapperDiv" class="wrapper">
         <div style="display: none" id="sidebarDiv" class="sidebar sidebarOpenState">
           <div class="sidebarWrapper">
             <div class="searchConditionContainer">
-              <div style="height: 50px;">             
+              <div style="height: 50px;">
               </div>
               <div>
                 <input id="searchTextbox" class="searchTextbox" type="text" value="" title="Поиск земельных участков и единиц кадастрового деления" />
@@ -74,9 +80,9 @@
                 </a>
               </div>
               <div id="searchExLabelContainer" class="searchExLabelContainer">
-                <div id="searchExRightTriangleImage" class=" triangle rightTriangle"></div>                              
+                <div id="searchExRightTriangleImage" class=" triangle rightTriangle"></div>
                 <div id="searchExDownTriangleImage" class="triangle downTriangle" style="display:none;"></div>
-                <a class="pseudoLink searchExLabel" onclick="searchExClick(); return false;">                                
+                <a class="pseudoLink searchExLabel" onclick="searchExClick(); return false;">
                   <span>
                     Расширенный поиск
                   </span>
@@ -87,148 +93,139 @@
                   <div class="portlet-nav-toolbar-box">
                     <ul class="portlet-nav-tabs portlet-nav-tabs-content g-layout">
                       <li class="tabs-item-active"><a class="tabs-item"><span><span><span>По кадастровому
-                        номеру </span></span></span></a></li>
+                      номеру </span></span></span></a></li>
                       <li><a class="tabs-item"><span><span><span>По адресу </span></span></span></a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>              
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-            <div id="searchResultPanel" class="searchResultContainer" style="display:none;">
-              <div id="emptyResultPanel" class="emtyResult" style="display:none;">
-                <div class="infoMessage">
-                  <div class="infoIcon"></div>
-                  <span class="infoLabel">
-                    По вашему запросу ничего не найдено. Пожалуйста уточните параметры запроса.
-                  </span>
-                </div>
-              </div>
-              <div id="resultListPanel" class="resultListContainer" style="display:none;">
-                <div class="resultListHeader">
-                  <a id="bookmarksAllButton" class="bookmarks_button bookmarks_headerButton bookmarks_addAllButton" title="Добавить весь список в избранное" onclick="addAllToBookamrks(); return false;"></a>
-                  <p id="resultItemLabelWraper" class="resultListLabel">
-                    <span id="resultItemLabel"></span>    
-                    <span id="resultItemLabelError"></span>                 
-                  </p>              
-                </div>
-                <ul id="resultList" class="resultList">                                
-                </ul>
-                <div id="resultsListPagesWrapper">
-                                <ul id="resultListPages"></ul>              
-                </div>
-              </div>
-            </div>   
           </div>
-          <div class="bookmarks">
-            <div class="bookmarks_header">
-              
+          <div id="searchResultPanel" class="searchResultContainer" style="display:none;">
+            <div id="emptyResultPanel" class="emtyResult" style="display:none;">
+              <div class="infoMessage">
+                <div class="infoIcon"></div>
+                <span class="infoLabel">
+                  По вашему запросу ничего не найдено. Пожалуйста уточните параметры запроса.
+                </span>
+              </div>
             </div>
-            <ul id="bookmarksList" class="bookmarks_list">
-            </ul>
-          </div>
-        </div>
-        <div id="sidebarSwitcherDiv" class="sidebarSwitcher" >
-          <a id="switcherButton" class="switcherButton switcherButtonOpenSate"  onclick="switcherClick()"></a>
-        </div>
-        <div id="contentDiv" class="_content contentOpenState">
-          <div id="toolbarDiv" class="toolbar" style="display: none">
-            <ul id="toolbarButtonContainer" class="toolbarBackground">
-              <li id="basemapTool" toggled="true" class="toolbarRightElement">
-                <a class="toolbarButton" onclick="toolButtonClick('basemapTool'); return false;" title="Управление содержанием карты"></a>
-                
-              </li>  
-            </ul>
-          </div>
-          <div id="mapContainerDiv" class="mapContainer">
-            <div id="map" class="map">
-              <div id="mapLoader" class="mapLoader">
-                <!--<img src="../portalonline/i/map-loader.gif" alt="загрузка..."/>-->
-              </div>                      
-              
+            <div id="resultListPanel" class="resultListContainer" style="display:none;">
+              <div class="resultListHeader">
+                <a id="bookmarksAllButton" class="bookmarks_button bookmarks_headerButton bookmarks_addAllButton" title="Добавить весь список в избранное" onclick="addAllToBookamrks(); return false;"></a>
+                <p id="resultItemLabelWraper" class="resultListLabel">
+                  <span id="resultItemLabel"></span>
+                  <span id="resultItemLabelError"></span>
+                </p>
+              </div>
+              <ul id="resultList" class="resultList">
+              </ul>
+              <div id="resultsListPagesWrapper">
+              <ul id="resultListPages"></ul>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div id="footerDiv" class="footer">
-      <div class="footerVersion" id="version"></div>
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+      <div class="bookmarks">
+        <div class="bookmarks_header">
+          
+        </div>
+        <ul id="bookmarksList" class="bookmarks_list">
+        </ul>
       </div>
     </div>
-
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
-    
-    <!-- legacy begin-->
-    <script src="scripts/legacy/common.js"></script>
-    
-    <script type="text/javascript" src="scripts/legacy/constants.js"></script>       
-    <script type="text/javascript" src="scripts/legacy/pagination.js"></script>
-    <script type="text/javascript" src="scripts/legacy/kosmos_layer.js" ></script>
-    <script type="text/javascript" src="scripts/legacy/initMap.js" ></script>
-    <script type="text/javascript" src="scripts/legacy/html_templates.js"></script>
-    <script type="text/javascript" src="scripts/legacy/toolbar.js"></script>
-    <script type="text/javascript" src="scripts/legacy/identify.js"></script>
-    <script type="text/javascript" src="scripts/legacy/identify_combobox.js"></script>
-    <script type="text/javascript" src="scripts/legacy/tab.js"></script>
-    <script type="text/javascript" src="scripts/legacy/map_functions.js"></script>
-    <script type="text/javascript" src="scripts/legacy/search.js"></script>
-    <script type="text/javascript" src="scripts/legacy/search_cadastre_combobox.js"></script>
-    <script type="text/javascript" src="scripts/legacy/search_address_combobox.js"></script>
-    <script type="text/javascript" src="scripts/legacy/info_window.js"></script>    
-    <script type="text/javascript" src="scripts/legacy/script.js"></script> 
-    <script type="text/javascript" src="scripts/legacy/toc_reorder.js"></script> 
-    <script type="text/javascript" src="scripts/legacy/zouit.js"></script> 
-    <script type="text/javascript" src="scripts/legacy/terrZone.js"></script> 
-    <script type="text/javascript" src="scripts/legacy/bookmarks.js"></script> 
-    <script type="text/javascript" src="scripts/legacy/border.js"></script>
-    <script type="text/javascript" src="scripts/legacy/atd.js"></script>
-    <script type="text/javascript" src="scripts/legacy/frame.js"></script>
-    <script type="text/javascript" src="scripts/legacy/trackers.js"></script>
-    <script type="text/javascript" src="scripts/legacy/mixedQueryTask.js"></script>
-    <script type="text/javascript" src="scripts/legacy/native.history.js"></script>
-    <script type="text/javascript" src="scripts/legacy/browserHistoryTools.js"></script>
-    <script type="text/javascript" src="scripts/legacy/measure.js"></script>
-    <script type="text/javascript" src="scripts/legacy/coordinateSearch.js"></script>
-    <script type="text/javascript" src="scripts/legacy/fileObjects.js"></script>
-    <script type="text/javascript" src="scripts/legacy/localStorage.js"></script>
-    <script type="text/javascript" src="scripts/legacy/CachedDynamycLayer.js"></script>
-    <!-- legacy end -->
-
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/controllers/about.js"></script>
-    <script src="scripts/directives/topmenu.js"></script>
-    <script src="scripts/services/config.js"></script>
-    <!-- endbuild -->
-    
-    
+    <div id="sidebarSwitcherDiv" class="sidebarSwitcher" >
+      <a id="switcherButton" class="switcherButton switcherButtonOpenSate"  onclick="switcherClick()"></a>
+    </div>
+    <div id="contentDiv" class="_content contentOpenState">
+      <div id="toolbarDiv" class="toolbar" style="display: none">
+        <ul id="toolbarButtonContainer" class="toolbarBackground">
+          <li id="basemapTool" toggled="true" class="toolbarRightElement">
+            <a class="toolbarButton" onclick="toolButtonClick('basemapTool'); return false;" title="Управление содержанием карты"></a>
+            
+          </li>
+        </ul>
+      </div>
+      <div id="mapContainerDiv" class="mapContainer">
+        <div id="map" class="map">
+          <div id="mapLoader" class="mapLoader">
+            <!--<img src="../portalonline/i/map-loader.gif" alt="загрузка..."/>-->
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="footerDiv" class="footer">
+  <div style="display: none" class="footerVersion" id="version"></div>
+  <div class="container">
+    <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+  </div>
+</div>
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+<script>
+!function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+(A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+}(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-XXXXX-X');
+ga('send', 'pageview');
+</script>
+<!-- legacy begin-->
+<script src="scripts/legacy/common.js"></script>
+<script type="text/javascript" src="scripts/legacy/constants.js"></script>
+<script type="text/javascript" src="scripts/legacy/pagination.js"></script>
+<script type="text/javascript" src="scripts/legacy/kosmos_layer.js" ></script>
+<script type="text/javascript" src="scripts/legacy/initMap.js" ></script>
+<script type="text/javascript" src="scripts/legacy/html_templates.js"></script>
+<script type="text/javascript" src="scripts/legacy/toolbar.js"></script>
+<script type="text/javascript" src="scripts/legacy/identify.js"></script>
+<script type="text/javascript" src="scripts/legacy/identify_combobox.js"></script>
+<script type="text/javascript" src="scripts/legacy/tab.js"></script>
+<script type="text/javascript" src="scripts/legacy/map_functions.js"></script>
+<script type="text/javascript" src="scripts/legacy/search.js"></script>
+<script type="text/javascript" src="scripts/legacy/search_cadastre_combobox.js"></script>
+<script type="text/javascript" src="scripts/legacy/search_address_combobox.js"></script>
+<script type="text/javascript" src="scripts/legacy/info_window.js"></script>
+<script type="text/javascript" src="scripts/legacy/script.js"></script>
+<script type="text/javascript" src="scripts/legacy/toc_reorder.js"></script>
+<script type="text/javascript" src="scripts/legacy/zouit.js"></script>
+<script type="text/javascript" src="scripts/legacy/terrZone.js"></script>
+<script type="text/javascript" src="scripts/legacy/bookmarks.js"></script>
+<script type="text/javascript" src="scripts/legacy/border.js"></script>
+<script type="text/javascript" src="scripts/legacy/atd.js"></script>
+<script type="text/javascript" src="scripts/legacy/frame.js"></script>
+<script type="text/javascript" src="scripts/legacy/trackers.js"></script>
+<script type="text/javascript" src="scripts/legacy/mixedQueryTask.js"></script>
+<script type="text/javascript" src="scripts/legacy/native.history.js"></script>
+<script type="text/javascript" src="scripts/legacy/browserHistoryTools.js"></script>
+<script type="text/javascript" src="scripts/legacy/measure.js"></script>
+<script type="text/javascript" src="scripts/legacy/coordinateSearch.js"></script>
+<script type="text/javascript" src="scripts/legacy/fileObjects.js"></script>
+<script type="text/javascript" src="scripts/legacy/localStorage.js"></script>
+<script type="text/javascript" src="scripts/legacy/CachedDynamycLayer.js"></script>
+<!-- legacy end -->
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/controllers/about.js"></script>
+<script src="scripts/directives/topmenu.js"></script>
+<script src="scripts/services/config.js"></script>
+<!-- endbuild -->
 </body>
 </html>

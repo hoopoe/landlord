@@ -31,27 +31,44 @@ angular.module('webApp')
       _map.setExtent(newExtent);
     });
 
-
-    $scope.test = function() {
-      var ids = "'47:14:1261001:6', '47:14:1261001:41'";
-      var criteria = "PARCEL_ID IN (" + ids + ")";
-      higlightCadastreObjects(PortalObjectTypes.parcel, criteria);
+    function isSold(t) {
+      return t.label == 's';
     }
 
-    $scope.clean = function() {
+    function isReserved(t) {
+      return t.label == 'r';
+    }
+
+    $scope.sold = function() {
       clearHighlightObject();
-    }
-
-    $scope.getGExcel = function() {
       $http({
         method: 'GET',
         url: CONFIG.ExcelAPI
       }).
       success(function(data, status) {
-        var ids = data.map(function(item) {
+		var filtered = data.filter(isSold);
+        var ids = filtered.map(function(item) {
           return "'" + item.id + "'";
         });
+        var criteria = "PARCEL_ID IN (" + ids + ")";
+        higlightCadastreObjects(PortalObjectTypes.parcel, criteria);
+      })
+        .error(function(data, status) {
+          console.log(data);
+        });
+    }
 
+    $scope.reserved = function() {
+      clearHighlightObject();
+      $http({
+        method: 'GET',
+        url: CONFIG.ExcelAPI
+      }).
+      success(function(data, status) {
+		var filtered = data.filter(isReserved);
+        var ids = filtered.map(function(item) {
+          return "'" + item.id + "'";
+        });
         var criteria = "PARCEL_ID IN (" + ids + ")";
         higlightCadastreObjects(PortalObjectTypes.parcel, criteria);
       })

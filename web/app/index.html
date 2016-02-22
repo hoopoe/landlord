@@ -43,6 +43,7 @@
         </div>
       </div>
     </div>
+    <span us-spinner="{radius:30, width:8, length:16}"></span>
     <div class="container" ng-controller='MainCtrl'>
       <!-- <button ng-click="getGExcel()">
       Get getGExcel
@@ -174,7 +175,7 @@ ga('create', 'UA-XXXXX-X');
 ga('send', 'pageview');
 </script>
 <!-- legacy begin-->
-<script src="scripts/legacy/common.js"></script>
+<script type="text/javascript" src="scripts/legacy/common.js"></script>
 <script type="text/javascript" src="scripts/legacy/constants.js"></script>
 <script type="text/javascript" src="scripts/legacy/initMap.js" ></script>
 <script type="text/javascript" src="scripts/legacy/identify.js"></script>
@@ -201,6 +202,9 @@ ga('send', 'pageview');
 <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
 <script src="bower_components/angular-touch/angular-touch.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/spin.js/spin.js"></script>
+<script src="bower_components/angular-spinner/angular-spinner.js"></script>
+<script src="bower_components/angular-loading-spinner/angular-loading-spinner.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 <!-- build:js({.tmp,app}) scripts/scripts.js -->

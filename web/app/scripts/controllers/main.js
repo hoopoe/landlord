@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the webApp
  */
-angular.module('webApp')
+angular.module('webApp', ['ngLoadingSpinner'])
   .controller('MainCtrl', function($rootScope, $scope, $http, CONFIG) {
     this.awesomeThings = [
       'HTML5 Boilerplate',

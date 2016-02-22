@@ -15,20 +15,20 @@ angular.module('webApp')
       'Karma'
     ];
 
-    $scope.placeTitle = "Place A";
+    $scope.placeTitle = "Place A Excel";
     $scope.excelId = CONFIG.Excel_PlaceA;
 
     $rootScope.$on('selectLand', function(event, data) {
       var newExtent = null;
       if (data == 'beta') {
-        $scope.placeTitle = "Place B";
+        $scope.placeTitle = "Place B Excel";
         $scope.excelId = CONFIG.Excel_PlaceB;
         newExtent = new esri.geometry.Extent(3318432.6374165327, 8341772.985917651, 3322951.9767140127, 8343683.911624831,
           new esri.SpatialReference({
             "wkid": 102113
           }));
       } else {
-        $scope.placeTitle = "Place A";
+        $scope.placeTitle = "Place A Excel";
         $scope.excelId = CONFIG.Excel_PlaceA;
         newExtent = new esri.geometry.Extent(3320427.1661233706, 8343996.825709338, 3322686.835772111, 8344952.288562928,
           new esri.SpatialReference({

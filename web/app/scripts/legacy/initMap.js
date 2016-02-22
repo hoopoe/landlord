@@ -67,7 +67,7 @@ function initMapAndLayers(mainLayer) {
   if (typeof(addLoadingHandler) !== 'undefined')
     addLoadingHandler();
 
-  initLocalStorage();
+  // initLocalStorage();
 
   _mapLayers = [];
 
@@ -81,13 +81,13 @@ function initMapAndLayers(mainLayer) {
 	_mapLayers["ortofoto"].hide();
 	_map.addLayer(_mapLayers["ortofoto"]);*/
 
-  _mapLayers["arcgisonline"] = new esri.layers.ArcGISTiledMapServiceLayer(LAYERS_URL.arcgisonline);
-  _mapLayers["arcgisonline"].hide();
-  _map.addLayer(_mapLayers["arcgisonline"]);
+  // _mapLayers["arcgisonline"] = new esri.layers.ArcGISTiledMapServiceLayer(LAYERS_URL.arcgisonline);
+  // _mapLayers["arcgisonline"].hide();
+  // _map.addLayer(_mapLayers["arcgisonline"]);
 
-  _mapLayers["kosmos"] = new KosmosnimkiLayer();
-  _mapLayers["kosmos"].hide();
-  _map.addLayer(_mapLayers["kosmos"]);
+  // _mapLayers["kosmos"] = new KosmosnimkiLayer();
+  // _mapLayers["kosmos"].hide();
+  // _map.addLayer(_mapLayers["kosmos"]);
 
   _cadastreLayers = [];
   _zouitLayers = [];
@@ -147,10 +147,10 @@ function initMapAndLayers(mainLayer) {
   _atdLayers["select"].hide();
   _map.addLayer(_atdLayers["select"]);
 
-  _frameLayers["frame"] = new esri.layers.ArcGISDynamicMapServiceLayer(LAYERS_URL.frame);
-  _frameLayers["frame"].setImageFormat("png32");
-  _frameLayers["frame"].hide();
-  _map.addLayer(_frameLayers["frame"]);
+  // _frameLayers["frame"] = new esri.layers.ArcGISDynamicMapServiceLayer(LAYERS_URL.frame);
+  // _frameLayers["frame"].setImageFormat("png32");
+  // _frameLayers["frame"].hide();
+  // _map.addLayer(_frameLayers["frame"]);
 
   _frameLayers["select"] = new esri.layers.ArcGISDynamicMapServiceLayer(LAYERS_URL.frameSelect, {
     opacity: 0.45
@@ -186,8 +186,8 @@ function initMapAndLayers(mainLayer) {
   _fileObjectsLayer["objects"] = new esri.layers.GraphicsLayer();
   _map.addLayer(_fileObjectsLayer["objects"]);
 
-  _fileObjectsLayer["movers"] = new esri.layers.GraphicsLayer();
-  _map.addLayer(_fileObjectsLayer["movers"]);
+  // _fileObjectsLayer["movers"] = new esri.layers.GraphicsLayer();
+  // _map.addLayer(_fileObjectsLayer["movers"]);
 }
 
 function setExtentByUrl(url, forPrint) {

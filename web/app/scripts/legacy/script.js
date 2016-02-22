@@ -361,8 +361,8 @@ function measure() {
 }
 
 function init(){
-	toolbarConstructor();
-	tabInit("searchExPanel");
+	// toolbarConstructor();
+	// tabInit("searchExPanel");
 	pinSymbolInit();
 	addEnterClickOnSearchTextbox();
 	resizeResultList();
@@ -401,7 +401,7 @@ function init(){
 		_toolbar = new esri.toolbars.Navigation(_map);
 
 		if (window.History){//Check History.js
-			var browserHistoryTools = new BrowserHistoryTools(_map);
+			// var browserHistoryTools = new BrowserHistoryTools(_map);
 		}
 
 		_selectedTool = "infoTool";

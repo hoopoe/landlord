@@ -106,27 +106,6 @@
 	color: #424D58;
 }
 
-
-.wrapper ._content .mapContainer .mapCursorPan
-{
-    /*cursor:url("../../portalonline/i/grab.cur"), auto  !important;*/
-}
-.wrapper ._content .mapContainer .mapCursorPanActive
-{
-    /*cursor:url("../../portalonline/i/grabbing.cur"), auto  !important;*/
-}
-.wrapper ._content .mapContainer .mapCursorZoom
-{
-    /*cursor:url("../../portalonline/i/zoom_in.cur"), auto  !important;*/
-}
-.wrapper ._content .mapContainer .mapCursorInfo
-{
-    /*cursor:help !important;*/
-}
-.wrapper ._content .mapContainer .mapCursorRuler
-{
-    /*cursor:default, auto  !important;*/
-}
 div.mapLoader
 {
 	overflow: hidden;

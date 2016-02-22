@@ -25,6 +25,7 @@
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <!-- Add your site or application content here -->
+    <span us-spinner="{radius:30, width:8, length:16}"></span>
     <div class="header">
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
@@ -43,17 +44,8 @@
         </div>
       </div>
     </div>
-    <span us-spinner="{radius:30, width:8, length:16}"></span>
+    
     <div class="container" ng-controller='MainCtrl'>
-      <!-- <button ng-click="getGExcel()">
-      Get getGExcel
-      </button>
-      <button ng-click="test()">
-      Test
-      </button>
-      <button ng-click="clean()">
-      Clean
-      </button> -->
       <div class="view-button-group">
         <ul>
           <li>
@@ -158,61 +150,61 @@
       </div>
     </div>
   </div>
-</div>
-<div id="footerDiv" class="footer">
-  <div style="display: none" class="footerVersion" id="version"></div>
+    </div>
+    <div id="footerDiv" class="footer">
+      <div style="display: none" class="footerVersion" id="version"></div>
   <div class="container">
     <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
   </div>
 </div>
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-<script>
-!function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-(A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-}(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-XXXXX-X');
-ga('send', 'pageview');
-</script>
-<!-- legacy begin-->
-<script type="text/javascript" src="scripts/legacy/common.js"></script>
-<script type="text/javascript" src="scripts/legacy/constants.js"></script>
-<script type="text/javascript" src="scripts/legacy/initMap.js" ></script>
-<script type="text/javascript" src="scripts/legacy/identify.js"></script>
-<script type="text/javascript" src="scripts/legacy/map_functions.js"></script>
-<script type="text/javascript" src="scripts/legacy/search.js"></script>
-<script type="text/javascript" src="scripts/legacy/script.js"></script>
-<script type="text/javascript" src="scripts/legacy/zouit.js"></script>
-<script type="text/javascript" src="scripts/legacy/terrZone.js"></script>
-<script type="text/javascript" src="scripts/legacy/atd.js"></script>
-<script type="text/javascript" src="scripts/legacy/frame.js"></script>
-<script type="text/javascript" src="scripts/legacy/measure.js"></script>
-<script type="text/javascript" src="scripts/legacy/fileObjects.js"></script>
-<script type="text/javascript" src="scripts/legacy/CachedDynamycLayer.js"></script>
-<!-- legacy end -->
-<!-- build:js(.) scripts/vendor.js -->
-<!-- bower:js -->
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="bower_components/angular-animate/angular-animate.js"></script>
-<script src="bower_components/angular-cookies/angular-cookies.js"></script>
-<script src="bower_components/angular-resource/angular-resource.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
-<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-<script src="bower_components/angular-touch/angular-touch.js"></script>
-<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-<script src="bower_components/spin.js/spin.js"></script>
-<script src="bower_components/angular-spinner/angular-spinner.js"></script>
-<script src="bower_components/angular-loading-spinner/angular-loading-spinner.js"></script>
-<!-- endbower -->
-<!-- endbuild -->
-<!-- build:js({.tmp,app}) scripts/scripts.js -->
-<script src="scripts/app.js"></script>
-<script src="scripts/controllers/main.js"></script>
-<script src="scripts/controllers/about.js"></script>
-<script src="scripts/directives/topmenu.js"></script>
-<script src="scripts/services/config.js"></script>
-<!-- endbuild -->
-</body>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+    !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+    (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+    r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+    }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+    </script>
+    <!-- legacy begin-->
+    <script type="text/javascript" src="scripts/legacy/common.js"></script>
+    <script type="text/javascript" src="scripts/legacy/constants.js"></script>
+    <script type="text/javascript" src="scripts/legacy/initMap.js" ></script>
+    <script type="text/javascript" src="scripts/legacy/identify.js"></script>
+    <script type="text/javascript" src="scripts/legacy/map_functions.js"></script>
+    <script type="text/javascript" src="scripts/legacy/search.js"></script>
+    <script type="text/javascript" src="scripts/legacy/script.js"></script>
+    <script type="text/javascript" src="scripts/legacy/zouit.js"></script>
+    <script type="text/javascript" src="scripts/legacy/terrZone.js"></script>
+    <script type="text/javascript" src="scripts/legacy/atd.js"></script>
+    <script type="text/javascript" src="scripts/legacy/frame.js"></script>
+    <script type="text/javascript" src="scripts/legacy/measure.js"></script>
+    <script type="text/javascript" src="scripts/legacy/fileObjects.js"></script>
+    <script type="text/javascript" src="scripts/legacy/CachedDynamycLayer.js"></script>
+    <!-- legacy end -->
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/spin.js/spin.js"></script>
+    <script src="bower_components/angular-spinner/angular-spinner.js"></script>
+    <script src="bower_components/angular-loading-spinner/angular-loading-spinner.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/directives/topmenu.js"></script>
+    <script src="scripts/services/config.js"></script>
+    <!-- endbuild -->
+    </body>
 </html>

@@ -23,7 +23,7 @@ angular.module('webApp', ['ngLoadingSpinner'])
       if (data == 'beta') {
         $scope.placeTitle = "Place B Excel";
         $scope.excelId = CONFIG.Excel_PlaceB;
-        newExtent = new esri.geometry.Extent(3318432.6374165327, 8341772.985917651, 3322951.9767140127, 8343683.911624831,
+        newExtent = new esri.geometry.Extent(3319179.0927708996, 8342341.486315537, 3321082.8525066776, 8343296.949169127,
           new esri.SpatialReference({
             "wkid": 102113
           }));

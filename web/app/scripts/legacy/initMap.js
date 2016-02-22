@@ -44,7 +44,7 @@ function initMapAndLayers(mainLayer) {
   esriConfig.defaults.io.alwaysUseProxy = false;
   esriConfig.defaults.io.corsEnabledServers.push("nsdi.ru");
 
-  initExtent = new esri.geometry.Extent(3320427.1661233706, 8343996.825709338, 3322686.835772111, 8344952.288562928,
+  initExtent = new esri.geometry.Extent(3320605.121079852, 8343996.825709338, 3322508.88081563, 8344952.288562928,
     new esri.SpatialReference({
       "wkid": 102113
     }));
